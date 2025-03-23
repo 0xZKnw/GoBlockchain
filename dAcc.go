@@ -17,3 +17,15 @@ func setKeys(a *dAcc) {
 	a.PrivKey = priv.Hex()
 	a.PubKey = hex.EncodeToString(pub.Bytes(true)) 
 }
+
+func send(from *dAcc, to *dAcc, amount int, data string, b *Block) {
+	from.Tokens -= amount
+	to.Tokens += amount
+	t := Transaction {
+		From: from.PubKey,
+		To: to.PubKey,
+		Amount: amount,
+		Data: data,
+	}
+	b.Transaction = append(b.Transaction, t)
+}
