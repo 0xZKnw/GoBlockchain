@@ -9,6 +9,11 @@ func main() {
 		Chain: []Block{},
 	}
 
+	a := dAcc {
+		Tokens: 0,
+	}
+	setKeys(&a)
+
 	b := Block {
 		PreviousHash: "0",
 		Timestamp: 0,
