@@ -26,7 +26,7 @@ func main() {
 	common.Mining(&gen, &bc)
 
 	http.HandleFunc("/ws", func(w http.ResponseWriter, r *http.Request) {
-		common.HandleConnection(w, r, &bcS)
+		common.HandleConnection(w, r, &bcS, &bc)
 	})
 	log.Println("websocket node start on localhost:8080")
 	err := http.ListenAndServe("localhost:8080", nil)
